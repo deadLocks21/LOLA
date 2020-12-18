@@ -1,0 +1,31 @@
+"use strict";
+
+function displayAddForm(e) {
+    document.getElementById(e.currentTarget.id).remove();
+    document.getElementById("sectorContainer").appendChild(createAddSectorForm());
+    addAddSectorFormListener();
+}
+
+function displayAdd(e) {
+    document.getElementById("addSectorForm").remove();
+    document.getElementById("sectorContainer").appendChild(createAddSector());
+    addAddSectorListener();
+}
+
+async function displayAddAndSend(e) {
+    let code = document.getElementById("codeSector").value;
+    let label1 = document.getElementById("label1Sector").value;
+    let label2 = document.getElementById("label2Sector").value;
+
+    if(code != "" && label1 != "" && label2 != "") {
+        await sendSector(code, label1, label2);
+
+        var sectorContainer = document.getElementById("sectorContainer");
+
+        while (sectorContainer.firstChild) {
+            sectorContainer.removeChild(sectorContainer.firstChild);
+        }
+
+        addSectors();
+    }
+}

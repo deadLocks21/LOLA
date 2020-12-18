@@ -1,0 +1,11 @@
+DROP PROCEDURE IF EXISTS GetSector;
+
+DELIMITER |
+CREATE PROCEDURE GetSector(IN p_id INT(11))
+    BEGIN
+		SELECT * FROM Sectors WHERE idSector=p_id;
+    END|
+DELIMITER ;
+
+CALL GetSector(1);
+

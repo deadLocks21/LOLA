@@ -1,0 +1,14 @@
+DROP PROCEDURE IF EXISTS GetUser;
+
+
+DELIMITER |
+CREATE PROCEDURE GetUser(IN p_login VARCHAR(100))
+    BEGIN
+	
+		SELECT * FROM Users WHERE login=p_login;
+		
+    END|
+DELIMITER ;
+
+
+CALL GetUser('dd124578');

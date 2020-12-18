@@ -1,0 +1,20 @@
+"use strict";
+
+function callback_AddSector_DisplayForm() {
+    display_AddSector_Form();
+}
+
+function callback_AddSector_CancelForm() {
+    display_AddSector_Simple();
+}
+
+function callback_AddSector_ValidateForm() {
+    if(data_AddSector_add()) {
+        var sectorContainer = document.getElementById("sectorContainer");
+
+        while (sectorContainer.firstChild) 
+            sectorContainer.removeChild(sectorContainer.firstChild);
+        
+        display_Sectors();  // TODO Ajouter la fonction
+    }
+}

@@ -1,0 +1,76 @@
+<?php
+$userInfos = getConnectedLogin();
+$admin = $userInfos['userType'];
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITRE ET ICONE -->
+    <title>Accueil</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="src/favicon-32x32.png">
+
+    <!-- POLICE -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME (ICONS) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/scrollbar.css">
+    <link rel="stylesheet" href="css/night.css">
+    <link rel="stylesheet" href="css/form-edit-software.css">
+</head>
+
+<body class="flex">
+<p style="display: none;" id="getLogin"><?php echo getConnectedLogin()['login'] ?></p>
+<p style="display: none;" id="getUserType"><?php echo getConnectedLogin()['userType'] ?></p>
+    
+<header class="flex align-center">
+    <img src="src/logo.png" alt="logo" id="logoIUT">
+
+    <span id="LOLA">Liste Omnisciente des Logiciels et Applications</span>
+
+    <div id="logoutButton">
+        <a href="login.php"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+</header>
+
+<div class="content-container grid" id="contentSoft">
+
+    <div class="sectors-container" id=sectorContainer>
+        <!-- Formulaire pour la modification-->
+        <!-- <div class="sector editSectorForm">
+            <h4>Modifier une formation</h4>                    
+            <input type="text" name="codeSector" placeholder="Code formation">
+            <input type="text" name="nameSector" placeholder="Nom complet">
+            <div class="confirmOrCancel">
+                <img src="src/ok.svg" class="confirmSectorForm"></img>
+                <img src="src/cross.svg" class="cancelSectorForm"></img>
+            </div>
+        </div> -->
+
+        <!-- Formulaire pour la suppression-->
+        <!-- <div class="sector deleteSectorForm">
+            <h4>Etes-vous sûrs ?</h4>        
+            <div class="confirmOrCancel">
+                <img src="src/ok.svg" class="confirmSectorForm"></img>
+                <img src="src/cross.svg" class="cancelSectorForm"></img>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<script src="js/sectorListeners.js"></script>
+<script src="js/createSectors.js"></script>
+<script src="js/displaySectors.js"></script>
+<script src="js/mainSectors.js"></script>
+<script defer> addSectors(); </script>
+
+</body>
+</html>

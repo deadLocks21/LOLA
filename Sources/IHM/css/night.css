@@ -1,0 +1,36 @@
+/* Bouton */
+
+.switch {
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.switch p {
+    padding-right: 0.5rem;
+}
+
+#dayMode {
+    display: none;
+}
+
+/* Changement apparence */
+
+.night, .night a {
+    color: #EAEAEA;
+}
+
+.night a:hover {
+    color: salmon;
+}
+
+.night, .night header {
+    background-color: #181818;
+}
+
+.night #nightMode {
+    display: none;
+}
+
+.night #dayMode {
+    display: flex;
+}

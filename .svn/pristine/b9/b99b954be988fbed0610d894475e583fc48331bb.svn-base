@@ -1,0 +1,258 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #333;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    grid-template-columns: 20% 80%;
+}
+
+/* PROPRIETES COMMUNES */
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: salmon;
+}
+
+/* NAV */
+
+nav {
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);   
+}
+
+nav .button {
+    /* remove default styles */
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    /* additionnal styles */
+    width: 85%;
+    padding: 0.5rem;
+    text-align: center;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+#logoIUT {
+    margin-top: 2rem;
+    width: 55%;
+}
+
+#search {
+    margin: 2rem 0;
+}
+
+#modules, .softwares {
+    list-style: none;
+}
+
+.module {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.softwares li {
+    padding: 0.2rem 0;
+    font-size: 1rem;
+}
+
+.softwares a {
+    display: none;
+    padding-left: 1rem;
+}
+
+.open a {
+    display: block;
+    color: #333;
+}
+
+#addSoftware {
+    margin-top: auto;
+    margin-bottom: 2rem;
+}
+
+/* CONTENT */
+
+#content-container {
+    grid-column-start: 2;
+    padding: 2rem;
+    background-color: white;
+}
+
+#content, #page {
+    position: relative;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+#nameAndVersion {
+    text-align: center;
+}
+
+#content-container h1 {
+    font-size: 3.5rem;
+}
+
+#content h2 {
+    font-size: 2.5rem;
+}
+
+#softwareVersion {
+    color: grey;
+}
+
+#softwareLogo {
+    width: 8rem;
+}
+
+#softwareDesc {
+    padding: 1rem 0;
+    text-align: justify;
+}
+
+#softwareLink {
+    padding-left: 3rem;
+    font-size: 1.2rem;
+}
+
+h2 {
+    padding: 1rem 0;
+}
+
+/* BOUTON ADMIN */
+
+#editSoftware {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+/* FORMULAIRE */
+
+form input[type=text] {
+    height: 1.5rem;
+    width: 80%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+form div {
+    padding: 1.5rem 0;
+}
+
+form span {
+    color: red;
+}
+
+/* VIDEO YOUTUBE */
+
+/* #iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+#iframe-container iframe {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border: 0;
+} */
+
+/* MODE NUIT
+
+/* bouton */
+
+/* .switch {
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.switch p {
+    padding-right: 0.5rem;
+}
+
+#dayMode {
+    display: none;
+} */
+
+/* apparence */
+
+/* .night, .night a {
+    color: #EAEAEA;
+}
+
+.night a:hover {
+    color: salmon;
+}
+
+.night, .night header {
+    background-color: #181818;
+}
+
+.night #nightMode {
+    display: none;
+}
+
+.night #dayMode {
+    display: flex;
+} */
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 850px) {
+    
+    body {
+        grid-template-columns: 100%;
+    }
+
+    nav {
+        opacity: 0;
+    }
+
+    #content-container {
+        grid-column-start: 1;
+    }
+    
+}

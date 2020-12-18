@@ -1,0 +1,10 @@
+"use strict";
+
+function sendSector(code, label1, label2) {
+    var url = "api/sector/0";
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("POST", url);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send(`code=${code}&label1=${label1}&label2=${label2}`);
+}

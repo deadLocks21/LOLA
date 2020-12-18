@@ -1,0 +1,22 @@
+DROP PROCEDURE IF EXISTS AddSector;
+
+DELIMITER |
+
+CREATE PROCEDURE AddSector(IN p_ID INT(11), IN p_Code VARCHAR(100), IN p_Label VARCHAR(100))
+    BEGIN
+
+        INSERT INTO Sectors
+
+            (idSector,
+            code,
+            label)
+
+        VALUES 
+        
+            (p_ID,
+            p_Code,
+            p_Label)
+            
+    END|
+
+DELIMITER ;

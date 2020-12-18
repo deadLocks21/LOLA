@@ -1,0 +1,225 @@
+<?php
+$userInfos = getConnectedLogin();
+$admin = $userInfos['userType'];
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TITRE ET ICONE -->
+    <title>Accueil</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="src/favicon-32x32.png">
+
+    <!-- POLICE -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME (ICONS) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body class="flex">
+    
+<header class="flex align-center">
+    <img src="src/logo.png" alt="logo" id="logoIUT">
+
+    <!-- <div id="switchMode">
+        <div class="switch flex" id="nightMode">
+            <p id="night">Mode nuit</p>
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="switch flex" id="dayMode">
+            <p id="day">Mode jour</p>
+            <i class="fas fa-sun"></i>
+        </div>
+    </div> -->
+
+    <span id="LOLA">Liste Omnisciente des Logiciels et Applications</span>
+
+	<!-- <?php if($admin == 2) : ?>
+		<div class="button" id="addSoftware">
+			Demander ajout de logiciel
+		</div>
+	<?php endif; ?> -->
+
+    <div id="logoutButton">
+        <a href="login.php"><i class="fas fa-sign-out-alt"></i></a>
+    </div>
+</header>
+
+<div class="content-container grid" id="contentSoft">
+
+    <div class="sectors-container">
+        <div class="sector">
+            <h3>DUT Informatique</h3>
+            <h4>Semestre 03</h4>
+            <span class="editOrDelete">
+                <i class="fas fa-pencil-alt"></i>
+                <i class="far fa-trash-alt"></i>
+            </span>
+        </div>
+        <div class="sector">
+            <h3>DUT Informatique</h3>
+            <h4>Semestre 02</h4>
+            <span class="editOrDelete">
+                <i class="fas fa-pencil-alt"></i>
+                <i class="far fa-trash-alt"></i>
+            </span>
+        </div>
+        <div class="sector">
+            <h3>DUT Informatique</h3>
+            <h4>Semestre 01</h4>
+            <span class="editOrDelete">
+                <i class="fas fa-pencil-alt"></i>
+                <i class="far fa-trash-alt"></i>
+            </span>
+        </div>
+        <div class="sector">
+            <h3>DUT Informatique</h3>
+            <h4>Semestre 01</h4>
+            <span class="editOrDelete">
+                <i class="fas fa-pencil-alt"></i>
+                <i class="far fa-trash-alt"></i>
+            </span>
+        </div>
+        <div class="sector">
+            <h3>DUT Informatique</h3>
+            <h4>Semestre 01</h4>
+            <span class="editOrDelete">
+                <i class="fas fa-pencil-alt"></i>
+                <i class="far fa-trash-alt"></i>
+            </span>
+        </div>
+        <div class="sector" id="addSector">
+            <h3>Ajouter une formation</h3>
+            <!-- <?php if($admin == 3) : ?> -->
+                <div class="addSectorForm">
+                    <div class="topSectorForm">
+                        <h4>Ajout de formation </h4>
+                        <span id="exitSectorForm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+                                <g id="Groupe_144" data-name="Groupe 144" transform="translate(-238 -238)">
+                                    <path id="Tracé_464" data-name="Tracé 464" d="M273.013,265.276l-7.291-7.291a2.806,2.806,0,0,1,0-3.97l7.291-7.291a3.371,3.371,0,0,0,0-4.767l-2.97-2.97a3.371,3.371,0,0,0-4.767,0l-7.291,7.291a2.808,2.808,0,0,1-3.97,0l-7.291-7.291a3.371,3.371,0,0,0-4.767,0l-2.97,2.97a3.371,3.371,0,0,0,0,4.767l7.291,7.291a2.806,2.806,0,0,1,0,3.97l-7.291,7.291a3.371,3.371,0,0,0,0,4.767l2.97,2.97a3.371,3.371,0,0,0,4.767,0l7.291-7.291a2.806,2.806,0,0,1,3.97,0l7.291,7.291a3.371,3.371,0,0,0,4.767,0l2.97-2.97A3.371,3.371,0,0,0,273.013,265.276Z" fill="#ff8a98"/>
+                                    <path id="Tracé_465" data-name="Tracé 465" d="M248.01,240.273l-1.286-1.286a3.371,3.371,0,0,0-4.767,0l-2.97,2.97a3.371,3.371,0,0,0,0,4.767l7.291,7.291a2.806,2.806,0,0,1,0,3.97l-7.291,7.291a3.371,3.371,0,0,0,0,4.767l1.831,1.831a6.625,6.625,0,0,1,1.893-4.555l9.81-9.81a3.833,3.833,0,0,0,0-5.419l-5.73-5.731a3.39,3.39,0,0,1-.067-4.726Z" fill="#fd5c6f"/>
+                                </g>
+                            </svg>
+                        </span>
+                    </div>
+                    
+                    <input type="text" name="codeSector" placeholder="Code formation">
+                    <input type="text" name="nameSector" placeholder="Nom complet">
+                    <input type="button" name="confirmSector" class="button" id="confirmAddSector" value="AJOUTER">
+                </div>
+            <!-- <?php endif; ?> -->
+            
+        </div>
+    </div>
+
+
+    <!-- <div class="flex content align-center"> -->
+
+        <!-- <div class="modules-container">
+            <h2>DUT Informatique Semestre 03</h2>
+            <div class="modules flex">
+            <?php $courseDirectory = CourseDirectoryDao::get($userInfos['login']); ?>
+            <?php foreach ($courseDirectory->getCourses() as $c) { ?>
+                <div class="module flex" id="<?php echo $c->getCode();?>">
+                    <img src="src/database-storage.svg" alt="" class="icon-module">
+                    <span><?php echo $c->getName();?></span>
+                    <ul class="softwares list">
+                        <?php foreach ($c->getSoftwares() as $s) {?>
+                        <li><a id="<?php echo $s->getId();?>" class="soft"><?php echo $s->getName();?></a></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            <?php } ?>
+            </div>
+        </div> -->
+
+        <!-- <div class="software-container">
+            <div class="flex align-center justify-between" id="content-top">
+                <h1 id="softwareName">Laragon</h1>
+                <h3 id="softwareVersion">version 8.4.10</h3>
+                <h2 id="softwareModule">Réseaux</h2>
+                <img src="src/laragon.png" alt="laragon" id="softwareLogo">
+            </div>
+
+            <p id="softwareDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis magna suscipit, consectetur erat vel, cursus urna. Sed eu blandit elit, a tristique nisi. Morbi tristique a nunc nec efficitur. Etiam magna orci, rhoncus eu nisl et, porttitor consectetur ipsum. Integer tincidunt est non est posuere, sit amet tincidunt est facilisis. Sed feugiat odio tortor, sed sagittis nunc ornare sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce sed fringilla ante. Duis quis mattis turpis. Nam sit amet enim et leo elementum malesuada non eu nisl. Maecenas ac mauris volutpat, hendrerit magna nec, ullamcorper odio. Suspendisse vitae nunc scelerisque eros accumsan cursus. Vivamus tristique molestie orci at convallis. Proin nisi ipsum, fringilla ac tellus at, congue tincidunt mauris. Cras fermentum enim orci, id consectetur massa laoreet quis. Pellentesque tristique leo sit amet dapibus sagittis.</p>
+
+            <h2>Téléchargement</h2>
+            <a id="softwareDownloadLink" href="https://laragon.org/download/index.html">https://laragon.org/download/index.html</a>
+
+            <h2>Installation</h2>
+            <a id="softwareTutorialLink" href="https://youtu.be/dQw4w9WgXcQ">https://youtu.be/dQw4w9WgXcQ</a>
+
+            <?php if($admin == 3) : ?>
+            <div id="editSoftware">
+                <i class="fas fa-pencil-alt"></i>
+            </div>
+            <?php endif; ?>
+        </div> -->
+
+    </div>
+</div>
+	
+<!-- <div class="content-container" id="contentForm">
+    <section class="content">
+        <form id="add_software_form" method="post" action="./add_software.php" enctype="multipart/form-data">
+            <h1 id="add_software_form_title">Modifier une fiche logiciel</h2>
+            
+            <div>
+                <label class="add_software_form_feature" for="name">Nom <span class="required">*</span></label>
+                <br/>
+                <input class="add_software_form_input" type="text" name="name" id="name" placeholder="MonApp" maxlength="100" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>" required />
+            </div>
+
+            <div>
+                <label class="add_software_form_feature" for="version">Version <span class="required">*</span></label>
+                <br/>
+                <input class="add_software_form_input" type="text" name="version" id="version" placeholder="1.0" value="<?php if (isset($_POST['version'])) echo $_POST['version']; ?>" required />
+            </div>
+            
+            <div>
+                <label class="add_software_form_feature" for="logo">Logo</label>
+                <br/>
+                <input class="add_software_form_input_file" type="file" name="logo" id="logo" />
+            </div>
+
+            <div>
+                <label class="add_software_form_feature" for="setup">Setup URL</label>
+                <br/>
+                <input class="add_software_form_input" type="text" name="setup" id="setup" placeholder="www.myapp/setup.com" value="<?php if (isset($_POST['setup'])) echo $_POST['setup']; ?>"/>
+            </div>
+
+            <div>
+                <label class="add_software_form_feature" for="tuto">Tutorial URL</label>
+                <br/>
+                <input class="add_software_form_input_file" type="file" name="tuto" id="tuto" />
+            </div>
+
+            <div>
+                <label class="add_software_form_feature" for="comment">Comment</label>
+                <br/>
+                <textarea class="add_software_form_input" name="comment" id="comment" placeholder="Enter a comment about the software..." rows="5" style="width: 80%; padding: 0.5rem; font-size: 1.5rem;"><?php if (isset($_POST['comment'])) echo $_POST['comment']; ?></textarea><br />
+                <span id="required_description"><span class="required">*</span> Required fields</span>
+            </div>
+
+            <p>
+                <input id="add_software_form_button" type="button" value="Add the software" />
+            </p>
+        </form>
+    </section>
+</div> -->
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

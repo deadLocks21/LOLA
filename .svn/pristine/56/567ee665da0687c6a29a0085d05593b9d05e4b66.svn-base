@@ -1,0 +1,264 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #555;
+    overflow: hidden;
+}
+
+/* PROPRIETES COMMUNES */
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.list {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: salmon;
+}
+
+.button {
+    /* suppression styles par défaut */
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    /* ajout styles */
+    text-align: center;
+    user-select: none;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+/* LAYOUT GENERAL */
+
+.content-container {
+    place-items: center;
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+/* LISTE FORMATIONS */
+
+.sectors-container {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.sector {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 200px;
+    min-width: 300px;
+    border-radius: 1.5rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    text-align: center;
+    user-select: none;
+    font-size: 1.2rem;
+    margin: 1rem 5rem 2rem 1rem;
+    padding: 0.5rem 1.5rem;
+}
+
+.editDelete {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.editDelete i {
+    margin-left: 5px;
+}
+
+.inputs  {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #777;
+    margin: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.confirmOrCancel {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.confirmOrCancel img {
+    height: 30px;
+    width: 30px;
+}
+
+.deleteSectorForm {
+    justify-content: space-around;
+}
+
+/* LISTE MODULES */
+
+.modules-container {   
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1200px;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.modules {
+    align-items: center;
+    overflow-x: scroll;
+}
+
+.module {
+    display: inline-flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 350px;
+    min-width: 300px;
+    margin: 1rem 1.5rem;
+    padding: 0 1.5rem;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    text-align: center;
+    user-select: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    scroll-margin-right: 3rem;
+}
+
+.softwares {
+    display: none;
+    overflow-y: scroll;
+}
+
+.icon-module {
+    width: 100%;
+    padding-top: 1rem;
+}
+
+/* AGGRANDISSEMENT MODULE */
+
+.openModule {
+    height: 455px;
+    min-width: 600px;
+    justify-content: flex-start;
+}
+
+.openModule .icon-module {
+    display: none;
+}
+
+.openModule .softwares {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.softwares li {
+    position: relative;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.openModule .editDelete {
+    display: none;
+}
+
+
+/* SANDBOX */
+
+.clickable {
+    cursor: pointer;
+}
+
+/*  */
+
+.fix-margin {
+    position: absolute;
+    right: -50px;
+}
+
+.fix-margin-bottom {
+    position: absolute;
+    bottom: -25px;
+}
+
+/*  */
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+/*  */
+
+.showSoftware {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.softwareOpened {
+    display: none;
+}
+
+.showSoftware .softwareOpened {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0.5rem;
+}
+
+.showSoftware .softwareClosed {
+    display: none;
+}
+
+.softwareClosed img {
+    width: 100%;
+}
+
+/*  */
+
+.modules-container>h2 {
+    padding-left: 2rem;
+}

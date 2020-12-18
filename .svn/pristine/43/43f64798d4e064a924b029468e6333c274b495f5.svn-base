@@ -1,0 +1,361 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #555;
+}
+
+/* PROPRIETES COMMUNES */
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.list {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: salmon;
+}
+
+.button {
+    /* remove default styles */
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    /* additionnal styles */
+    padding: 0.5rem;
+    border-radius: 999px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    text-align: center;
+    user-select: none;
+}   
+
+/* HEADER */
+
+header {
+    width: 100vw;
+    height: 10vh;
+    justify-content: center;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+    padding: 0.5rem 1.5rem;
+    /* z-index: 999; */
+}
+
+#logoIUT {
+    height: 100%;
+}
+
+span#LOLA {
+    font-size: 2rem;
+    font-weight: bolder;
+    padding-left: 3rem;
+}
+
+/* #addSoftware {
+    margin-top: auto;
+    margin-bottom: 2rem;
+    user-select: none;
+} */
+
+#logoutButton {
+    margin-left: auto;
+    font-size: 2rem;
+}
+
+#logoutButton a {
+    color: #333; 
+}
+
+/* LISTE FORMATIONS (ADMIN) */
+
+.sectors-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.sector {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    border-radius: 1.5rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    padding: 2.5rem;
+    text-align: center;
+    user-select: none;
+    font-size: 1.2rem;
+    margin: 0 2rem;
+}
+
+
+/* LISTE MODULES */
+
+.modules-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.modules {
+    height: 100%;
+}
+
+.module {
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    margin: 1.5rem 2.2rem 0 0;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    text-align: center;
+    user-select: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.softwares {
+    height: 100%;
+    opacity: 0;
+}
+
+.softwares li {
+    border: 1px solid #333;
+}
+
+.icon-module {
+    width: 100%;
+}
+
+/* CONTENT */
+
+.content-container {
+    place-items: center;
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+.content {
+    height: 100%;
+    position: relative;
+    padding: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+#nameAndVersion {
+    text-align: center;
+}
+
+.content-container h1 {
+    font-size: 3.5rem;
+}
+
+.content h2 {
+    font-size: 1.4rem;
+}
+
+#softwareVersion {
+    color: grey;
+}
+
+#softwareLogo {
+    width: 8rem;
+}
+
+#softwareDesc {
+    padding: 1rem 0;
+    text-align: justify;
+}
+
+#softwareLink {
+    padding-left: 3rem;
+    font-size: 1.2rem;
+}
+
+/* BOUTON ADMIN */
+
+#editSoftware {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    user-select: none;
+}
+
+/* TRANSITION FICHE/FORMULAIRE */
+
+#contentForm {
+    display: none;
+}
+
+.edit #contentSoft {
+    display: none;
+}
+
+.edit #contentForm {
+    display: block;
+}
+
+/* FORMULAIRE */
+
+form input[type=text] {
+    height: 1.5rem;
+    width: 80%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+form div {
+    padding: 1.5rem 0;
+}
+
+form span {
+    color: red;
+}
+
+/* MODE NUIT
+
+/* bouton */
+
+/* .switch {
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.switch p {
+    padding-right: 0.5rem;
+}
+
+#dayMode {
+    display: none;
+} */
+
+/* apparence */
+
+/* .night, .night a {
+    color: #EAEAEA;
+}
+
+.night a:hover {
+    color: salmon;
+}
+
+.night, .night header {
+    background-color: #181818;
+}
+
+.night #nightMode {
+    display: none;
+}
+
+.night #dayMode {
+    display: flex;
+} */
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 850px) {
+    
+}
+
+/* AGGRANDISSEMENT MODULE */
+
+.openModule {
+    width: 600px;
+    justify-content: flex-start;
+}
+
+.openModule .icon-module {
+    display: none;
+}
+
+.openModule .softwares {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    opacity: 1;
+    padding: 1rem 0;
+}
+
+.openModule .softwares li:hover {
+    grid-column: span 2;
+}
+
+/* AJOUTER FORMATION */
+
+.addSectorForm {
+    display: none;
+}
+
+.openAddSector .addSectorForm {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.openAddSector h3 {
+    display: none;
+}
+
+.openAddSector#addSector {
+    padding: 0 2rem;
+}
+
+#confirmAddSector {
+    background-color: #077efc;
+    color: white;
+    padding: 0.4rem;
+}
+
+.sector input {
+    border: none;
+    border-bottom: 1px solid #777;
+    outline: none;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.sector input {
+    border: none;
+    border-bottom: 1px solid #777;
+    outline: none;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,17 @@
+"use strict";
+
+async function callback_Sector_Delete(e) {
+    e.stopPropagation();
+    let id = e.currentTarget.id.replace("ok_SectorDelete", "");
+    
+    await data_Sector_Delete(id);
+    
+    document.getElementById("sectorContainer").removeChild(document.getElementById(`div_SectorDelete${id}`));
+}
+
+function callback_Sector_DisplayDelete(e) {
+    e.stopPropagation();
+    let id = e.currentTarget.id.replace("trash_Sector", "");
+    console.log(e.currentTarget.id);
+    display_Sector_Delete(id);
+}

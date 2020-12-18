@@ -1,0 +1,28 @@
+DROP PROCEDURE IF EXISTS AddCourse;
+
+DELIMITER |
+
+CREATE PROCEDURE AddCourse(IN p_Code VARCHAR(100), IN p_Name VARCHAR(255), IN p_idUser INT(11), IN p_idSector INT(11))
+    BEGIN TRANSACTION;
+
+        INSERT INTO Courses (
+            code,
+            name,
+            sector
+           	)
+		VALUES (
+            p_Code,
+            p_Name,
+            p_idSector
+		);
+
+		INSERT INTO ProfessorsManageCourses (
+			professor,
+			course
+			)
+        VALUES (
+        	p_idUser,
+        	SELECT LAST_INSERT_ID() FROM Courses)    
+    END|
+
+DELIMITER ;

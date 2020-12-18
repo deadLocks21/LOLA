@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^software/(\d+)$ software.php?id=$1
+RewriteRule ^softwares/([0-9|a-z|A-Z]*)$ softwares.php?login=$1
+RewriteRule ^login/?$ login.php

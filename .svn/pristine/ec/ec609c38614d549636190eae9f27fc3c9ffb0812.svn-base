@@ -1,0 +1,20 @@
+DROP PROCEDURE IF EXISTS AddSector;
+
+DELIMITER |
+
+CREATE PROCEDURE AddSector(IN p_Code VARCHAR(100), IN p_Label VARCHAR(255))
+    BEGIN
+
+        INSERT INTO Sectors (
+            code,
+            label)
+		VALUES (
+            p_Code,
+            p_Label
+		);
+            
+    END|
+
+DELIMITER ;
+
+CALL AddSector("LP MN DDIM", "Licence Professionnelle mention Métiers du Numérique : conception, rédaction et réalisation web, parcours Design et Développement pour l'Internet Mobile");

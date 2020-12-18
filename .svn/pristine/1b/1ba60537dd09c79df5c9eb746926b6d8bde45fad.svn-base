@@ -1,0 +1,133 @@
+"use strict";
+
+function createProfessorSector(label1, label2) {
+    var h11 = document.createElement("h1");
+    var h12 = document.createElement("h1");
+    var h3 = document.createElement("h3");
+    var h4 = document.createElement("h4");
+    var div = document.createElement("div");
+
+    h11.innerHTML = "&nbsp;"
+    h12.innerHTML = "&nbsp;"
+    h3.innerHTML = label1;
+    h4.innerHTML = label2;
+
+    div.classList.add("sector");
+    div.appendChild(h11);
+    div.appendChild(h3);
+    div.appendChild(h4);
+    div.appendChild(h12);
+
+    return div;
+}
+
+function createAdminSector(label1, label2) {
+    var div = createProfessorSector(label1, label2);
+
+    var ipencil = document.createElement("i");
+    ipencil.classList.add("fas");
+    ipencil.classList.add("fa-pencil-alt");
+    var itrash = document.createElement("i");
+    itrash.classList.add("far");
+    itrash.classList.add("fa-trash-alt");
+
+    var span = document.createElement("span");
+    span.classList.add("editDelete");
+
+    span.appendChild(ipencil);
+    span.appendChild(itrash);
+
+    div.appendChild(span);
+
+    return div;
+}
+
+function createAddSector() {
+    var classNameASF = "addSector";
+
+    var h11 = document.createElement("h1");
+    h11.classList.add(classNameASF);
+    var h12 = document.createElement("h1");
+    h12.classList.add(classNameASF);
+    var h31 = document.createElement("h3");
+    h31.classList.add(classNameASF);
+    var h32 = document.createElement("h3");
+    h32.classList.add(classNameASF);
+    var div = document.createElement("div");
+
+    h11.innerHTML = "&nbsp;"
+    h12.innerHTML = "&nbsp;"
+    h31.innerHTML = "Ajouter une";
+    h32.innerHTML = "formation";
+
+    div.classList.add("sector");
+    div.appendChild(h11);
+    div.appendChild(h31);
+    div.appendChild(h32);
+    div.appendChild(h12);
+    div.id = classNameASF;
+
+    return div;
+}
+
+function createAddSectorForm() {
+    let classNameASF = "addSectorForm";
+    let classNameI = "inputs";
+
+    var okImg = document.createElement("img");
+    okImg.classList.add(classNameASF);
+    okImg.classList.add("confirmSectorForm");
+    okImg.setAttribute("src", "src/ok.svg");
+    okImg.id = "confirmSectorForm";
+    var crossImg = document.createElement("img");
+    crossImg.classList.add(classNameASF);
+    crossImg.classList.add("cancelSectorForm");
+    crossImg.setAttribute("src", "src/cross.svg");
+    crossImg.id = "cancelSectorForm";
+    
+    var h4 = document.createElement("h4");
+    h4.classList.add(classNameASF);
+    h4.innerHTML = "Ajouter une formation";
+    var inputCode = document.createElement("input");
+    inputCode.classList.add(classNameI);
+    inputCode.classList.add(classNameASF);
+    inputCode.setAttribute("type", "text");
+    inputCode.setAttribute("name", "codeSector");
+    inputCode.setAttribute("placeholder", "Code formation");
+    inputCode.id = "codeSector";
+    var inputLabel1 = document.createElement("input");
+    inputLabel1.classList.add(classNameI);
+    inputLabel1.classList.add(classNameASF);
+    inputLabel1.setAttribute("type", "text");
+    inputLabel1.setAttribute("name", "label1Sector");
+    inputLabel1.setAttribute("placeholder", "Nom de la formation");
+    inputLabel1.id = "label1Sector";
+    var inputLabel2 = document.createElement("input");
+    inputLabel2.classList.add(classNameI);
+    inputLabel2.classList.add(classNameASF);
+    inputLabel2.setAttribute("type", "text");
+    inputLabel2.setAttribute("name", "label2Sector");
+    inputLabel2.setAttribute("placeholder", "Semestre");
+    inputLabel2.id = "label2Sector";
+    var divCOrC = document.createElement("div");
+    divCOrC.classList.add(classNameASF);
+    divCOrC.classList.add("confirmOrCancel");
+
+    var div = document.createElement("div");
+    div.id = "addSectorForm";
+    div.classList.add("sector");
+    div.classList.add("addSectorForm");
+
+
+    divCOrC.appendChild(okImg);
+    divCOrC.appendChild(crossImg);
+
+    div.appendChild(h4);
+    div.appendChild(inputCode);
+    div.appendChild(inputLabel1);
+    div.appendChild(inputLabel2);
+    div.appendChild(divCOrC);
+
+    return div;
+}
+

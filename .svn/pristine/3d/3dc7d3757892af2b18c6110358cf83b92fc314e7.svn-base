@@ -1,0 +1,22 @@
+"use strict";
+
+async function display_Sector_All() {
+    var sectors = await data_Sector_GetAll();
+    var userType = document.getElementById("getUserType").innerHTML;
+
+    sectors.forEach(element => {
+        switch(userType) {
+            case "2":
+                var sector = create_Sector_ProfSimple(element['id'], element['label1'], element['label2']);  // TODO Modifier le 1
+                break;
+            case "3":
+                var sector = create_Sector_AdminSimple(element['id'], element['label1'], element['label2']);  // TODO Modifier le 1
+                break; 
+        }
+        document.getElementById("sectorContainer").appendChild(sector);
+    });
+
+    if(userType == 3) {
+        display_AddSector_Simple();
+    }
+}

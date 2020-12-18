@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 400;
+}
+
+.landing {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 45% 55%;
+}
+
+.welcome, .log {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome {
+    justify-content: flex-start;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.log {
+    justify-content: center;
+}
+
+.log-input {
+    padding: 3rem 0;
+    font-size: 1.8rem;
+}
+
+form input {
+    height: 1.5rem;
+    width: 25rem;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+
+.userInfo input {
+    margin-top: 1rem;
+}
+
+#log-submit {
+    height: 150%;
+    width: 20rem;
+    background-color: #6C63FF;
+    color: white;    
+    border-radius: 3rem;
+    border: none;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 999px) {
+
+    body {
+        padding: 1rem
+    }
+
+    .landing {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .welcome img {
+        padding: 2rem 0;
+        height: 35vh;
+    }
+
+    form input {
+        width: 70vw;
+    }
+}
+
+@media (min-width: 1000px) {
+    .welcome img {
+        padding: 5rem 0;
+        width: 28vw;
+    }
+
+}

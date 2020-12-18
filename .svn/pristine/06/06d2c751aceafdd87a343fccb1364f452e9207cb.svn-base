@@ -1,0 +1,88 @@
+/* FORM TO ADD A SOFTWARE */
+
+#add_software_form {
+	width: 30%;
+	margin: auto;
+	padding: 20px;
+	text-align: left;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(219, 219, 219);
+	border-radius: 12px;
+	box-shadow: 2px 2px 4px grey;
+	display: flex;
+	flex-direction: column;
+}
+
+#add_software_form_title {
+	text-align: center;
+}
+
+#add_software_form_divider {
+	width: 100%;
+	background-color: rgb(219, 219, 219);
+	border: 1px solid rgb(219, 219, 219);
+	border-radius: 30px;
+}
+
+.add_software_form_feature {
+	font-size: 16px;
+}
+
+.add_software_form_input {
+	font-size: 14px;
+	width: 97%;
+	padding: 5px;
+	margin: 5px 0;
+	border: none;
+	box-shadow: 0px 0px 1px grey;
+}
+
+.add_software_form_input_file {
+	font-size: 14px;
+	padding: 5px;
+	margin: 2px 0 0 -5px;
+}
+
+.add_software_form_input:focus {
+	box-shadow: 0px 0px 1px black;
+}
+
+#add_software_form_button {
+	text-align: center;
+}
+
+#add_software_form_button input {
+	padding: 15px 20px;
+	font-size: 18px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(7, 126, 254);
+	border: 2px solid rgb(7, 126, 254);
+	border-radius: 40px;
+}
+
+#add_software_form_button input:hover {
+	border: 2px solid rgb(0, 0, 0);
+}
+
+#add_software_form_button input:active {
+	background-color: rgb(0, 74, 186);
+	outline-style: none;
+}
+
+textarea[name=comment] {
+	resize: none;
+}
+
+.required {
+	color: red;
+}
+
+#required_description {
+	font-size: 12px;
+}
+
+#error_message {
+	color: red;
+	font-size: 14px;
+	text-align: center;
+}

@@ -1,0 +1,30 @@
+/* Affichage */
+
+form input[type=text] {
+    height: 1.5rem;
+    width: 80%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+form div {
+    padding: 1.5rem 0;
+}
+
+form span {
+    color: red;
+}
+
+/* Transition */
+
+#contentForm {
+    display: none;
+}
+
+.edit #contentSoft {
+    display: none;
+}
+
+.edit #contentForm {
+    display: block;
+}
