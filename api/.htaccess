@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule ^software/(\d+)$ software.php?id=$1
+RewriteRule ^softwares/([0-9|a-z|A-Z]*)$ softwares.php?login=$1
+RewriteRule ^sector/(\d+)$ sector.php?id=$1
+RewriteRule ^sectors/([0-9|a-z|A-Z]*)$ sectors.php?login=$1
+RewriteRule ^courses/([0-9|a-z|A-Z]*)/([0-9]*)$ courses.php?login=$1&sector=$2
+RewriteRule ^course/(\d+)$ course.php?id=$1

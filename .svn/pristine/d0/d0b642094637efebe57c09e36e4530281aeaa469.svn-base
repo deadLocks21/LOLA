@@ -1,6 +1,0 @@
-h1 {
-    text-decoration: underline;
-}
-p {
-    color: rgb(51, 107, 153);
-}

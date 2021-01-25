@@ -1,9 +1,0 @@
-url = "api/sector/1";
-const xhr = new XMLHttpRequest();
-
-xhr.open("PUT", url);
-xhr.send(JSON.stringify({
-    "id": "1",
-    "code": "Proteus ISIS",
-    "label": "",
-}));
