@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/Bar.dart';
+import 'package:flutter_project/Content.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -16,6 +17,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Bar(),
+            Content(),
           ],
         ),
       ),
