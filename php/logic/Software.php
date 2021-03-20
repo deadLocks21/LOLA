@@ -128,48 +128,48 @@ class Software implements JsonSerializable
 	public function getVersion() { return $this->version; }
 
 	/**
-	 * Mutateur de $urlSetup.
+	 * Mutateur de $tuto.
 	 * 
-	 * @param string $urlSetup
+	 * @param string $tuto
 	 */
 	public function setTuto($tuto) { $this->tuto = $tuto; }
 	/**
-	 * Assesseur de $urlSetup.
+	 * Assesseur de $tuto.
 	 * 
 	 * @return string
 	 */
 	public function getTuto() { return $this->tuto; }
 
 	/**
-	 * Mutateur de $urlTuto.
+	 * Mutateur de $setup.
 	 * 
-	 * @param string $urlTuto
+	 * @param string $setup
 	 */
 	public function setSetup($setup) { $this->setup = $setup; }
 	/**
-	 * Assesseur de $urlTuto.
+	 * Assesseur de $setup.
 	 * 
 	 * @return string
 	 */
 	public function getSetup() { return $this->setup; }
 
 	/**
-	 * Mutateur de $comment.
+	 * Mutateur de $commentary.
 	 * 
-	 * @param string $comment
+	 * @param string $commentary
 	 */
-	public function setCommentary($comment) { $this->commentary = $commentary; }
+	public function setCommentary($commentary) { $this->commentary = $commentary; }
 	/**
-	 * Assesseur de $comment.
+	 * Assesseur de $commentary.
 	 * 
 	 * @return string
 	 */
 	public function getCommentary() { return $this->commentary; }
 
 	/**
-	 * Mutateur de $comment.
+	 * Mutateur de $picture.
 	 * 
-	 * @param string $comment
+	 * @param string $picture
 	 */
 	public function setPicture($picture) { $this->picture = $picture; }
 	/**
@@ -205,9 +205,11 @@ class Software implements JsonSerializable
             'id' => htmlentities(stripslashes($this->id), ENT_QUOTES),
             'name'=> htmlentities(stripslashes($this->name), ENT_QUOTES),
             'version' => htmlentities(stripslashes($this->version), ENT_QUOTES),
-            'urlSetup' => htmlentities(stripslashes($this->urlSetup), ENT_QUOTES),
-            'urlTuto' => htmlentities(stripslashes($this->urlTuto), ENT_QUOTES),
-            'comment' => htmlentities(stripslashes($this->comment), ENT_QUOTES)
+            'tuto' => htmlentities(stripslashes($this->tuto), ENT_QUOTES),
+            'setup' => htmlentities(stripslashes($this->setup), ENT_QUOTES),
+            'commentary' => htmlentities(stripslashes($this->commentary), ENT_QUOTES),
+            'picture' => htmlentities(stripslashes($this->picture), ENT_QUOTES),
+            'display' => htmlentities(stripslashes($this->display), ENT_QUOTES)
         ];
 	}
 	

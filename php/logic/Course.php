@@ -203,6 +203,8 @@ class Course implements JsonSerializable
             "id" => htmlentities(stripslashes($this->id), ENT_QUOTES),
             "code" => htmlentities(stripslashes($this->code), ENT_QUOTES),
             "name" => htmlentities(stripslashes($this->name), ENT_QUOTES),
+            "picture" => htmlentities(stripslashes($this->picture), ENT_QUOTES),
+            "display" => htmlentities(stripslashes($this->display), ENT_QUOTES),
             "softwares" => $this->softwares];
     }
 	
