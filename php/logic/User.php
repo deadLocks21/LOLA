@@ -18,35 +18,38 @@ class User
 	 * @var string
 	 */
 	private $login;
-	/**
-	 * Mot de passe, ex: azerty123
-	 * 
-	 * @var string
-	 */
-	private $password;
-	/**
-	 * Type de l'utilisateur, 1 : élève, 2 : profs et 3 : administrateur. 
-	 * 
-	 * @var int
-	 */
-	private $userType;
 	
 	/**
 	 * Constructeur d'un utilisateur.
 	 * 
 	 * @param int $id
 	 * @param string $login
-	 * @param string $password
-	 * @param int $userType
 	 */
-	public function __construct($id, $login, $password, $userType)
+	public function __construct($id, $login)
 	{
 		$this->id = $id;
 		$this->login = $login;
-		$this->password = $password;
-		$this->userType = $userType;
 	}
 	
+	/**
+	 * Mutateur de la variable $id.
+	 * 
+	 * @param int $id
+	 */
+	public function setId($id)
+	{
+		$this->id = $id;
+	}
+	
+	/**
+	 * Mutateur de la variable $id.
+	 * 
+	 * @param string $login
+	 */
+	public function setLogin($login)
+	{
+		$this->login = $login;
+	}
 	
 	/**
 	 * Assesseur de la variable $id.
@@ -67,33 +70,27 @@ class User
 	{
 		return $this->login;
 	}
-		
+
+
 	/**
-	 * Assesseur de $password.
-	 * 
-	 * @return string
-	 */
-	public function getPassword()
+	* Initialise Course avec une liste
+	*
+	* @param array
+	*/
+	public function hydrate(array $donnes)
 	{
-		return $this->password;
+		foreach($donnes as $key => $value)
+		{
+			$method = 'set'.ucfirst ($key);
+
+			if (method_exists($this, $method))
+			{
+				$this->$method($value);
+			}
+		}
 	}
-
-	/**
-	 * Assesseur de $userType.
-	 * 
-	 * @return int
-	 */
-	public function getUserType() {
-	    return $this->userType;
-    }
-
-
-    /**
-	 * Sauvegarde d'un utilisateur, notamment pour la session.
-	 * 
-     * @return array
-     */
-    public function save() {
-	    return ["login" => $this->login, "userType" => $this->userType];
-    }
 }
+
+
+
+?>

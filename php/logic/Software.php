@@ -25,23 +25,37 @@ class Software implements JsonSerializable
 	 */
 	private $version;
 	/**
-	 * URL du setup.
+	 * URL du tuto.
 	 * 
 	 * @var string
 	 */
-	private $urlSetup;
+	private $tuto;
 	/**
-	 * URL du tutoriel
+	 * URL du setup
 	 * 
 	 * @var string
 	 */
-	private $urlTuto;
+	private $setup;
 	/**
 	 * Commentaire sur le logiciel.
 	 * 
 	 * @var string
 	 */
-	private $comment;
+	private $commentary;
+
+	/**
+	* Image du logiciel
+	*
+	* @var string
+	*/
+	private $picture;
+
+	/**
+	* ???
+	*
+	* @var bool
+	*/
+	private $display;
 
 
 
@@ -55,13 +69,15 @@ class Software implements JsonSerializable
 	 * @param string $urlTuto
 	 * @param string $comment
 	 */
-	public function __construct($id, $name, $version, $urlSetup, $urlTuto, $comment) {
+	public function __construct($id, $name, $version, $tuto, $setup, $commentary, $picture, $display) {
 	    $this->id = $id;
 		$this->name = $name;
 		$this->version = $version;
-		$this->urlSetup = $urlSetup;
-		$this->urlTuto = $urlTuto;
-		$this->comment = $comment;
+		$this->tuto = $tuto;
+		$this->setup = $setup;
+		$this->commentary = $commentary;
+		$this->picture = $picture;
+		$this->display = $display;
 	}
 
 	/**
@@ -72,14 +88,19 @@ class Software implements JsonSerializable
 	public function __toString() { return sprintf("[%d] %s", $this->id, $this->name); }
 
 
-
+	/**
+	 * Mutateur de $id.
+	 * 
+	 * @param int $id
+	 */
+	public function setId($id) { $this->id = $id; }
 	/**
 	 * Assesseur de $id.
 	 * 
 	 * @return int
 	 */
 	public function getId() { return $this->id; }
-
+	
 	/**
 	 * Mutateur de $name.
 	 * 
@@ -111,39 +132,67 @@ class Software implements JsonSerializable
 	 * 
 	 * @param string $urlSetup
 	 */
-	public function setUrlSetup($urlSetup) { $this->urlSetup = $urlSetup; }
+	public function setTuto($tuto) { $this->tuto = $tuto; }
 	/**
 	 * Assesseur de $urlSetup.
 	 * 
 	 * @return string
 	 */
-	public function getUrlSetup() { return $this->urlSetup; }
+	public function getTuto() { return $this->tuto; }
 
 	/**
 	 * Mutateur de $urlTuto.
 	 * 
 	 * @param string $urlTuto
 	 */
-	public function setUrlTuto($urlTuto) { $this->urlTuto = $urlTuto; }
+	public function setSetup($setup) { $this->setup = $setup; }
 	/**
 	 * Assesseur de $urlTuto.
 	 * 
 	 * @return string
 	 */
-	public function getUrlTuto() { return $this->urlTuto; }
+	public function getSetup() { return $this->setup; }
 
 	/**
 	 * Mutateur de $comment.
 	 * 
 	 * @param string $comment
 	 */
-	public function setComment($comment) { $this->comment = $comment; }
+	public function setCommentary($comment) { $this->commentary = $commentary; }
 	/**
 	 * Assesseur de $comment.
 	 * 
 	 * @return string
 	 */
-	public function getComment() { return $this->comment; }
+	public function getCommentary() { return $this->commentary; }
+
+	/**
+	 * Mutateur de $comment.
+	 * 
+	 * @param string $comment
+	 */
+	public function setPicture($picture) { $this->picture = $picture; }
+	/**
+	 * Assesseur de $picture.
+	 * 
+	 * @return string
+	 */
+	public function getPicture() { return $this->picture; }
+	
+	/**
+	 * Assesseur de $display.
+	 * 
+	 * @return bool
+	 */
+	public function getDisplay() { return $this->display; }
+
+	/**
+	 * Mutateur de $display.
+	 * 
+	 * @param bool $display
+	 */
+	public function setDisplay($display) { $this->display = $display; }
+	
 
 
 

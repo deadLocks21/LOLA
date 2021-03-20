@@ -30,7 +30,24 @@ class Course implements JsonSerializable
 	 * @var array
 	 */
 	private $softwares = array();
-
+	/**
+	* Image de la matière
+	*
+	*@var string
+	*/
+	private $picture;
+	/**
+	*
+	*
+	*@var bool
+	*/
+	private $display;
+	/**
+	* Admin de la Course
+	*
+	*@var User
+	*/
+	private $admin;
 	
 	/**
 	 * Constructeur de la classe Course
@@ -38,12 +55,18 @@ class Course implements JsonSerializable
 	 * @param int $id
 	 * @param string $code
 	 * @param string $name
+	 * @param string @picture
+	 * @param bool @display
+	 * @param user @admin
 	 */
-	public function __construct( $id,  $code, $name)
+	public function __construct( $id,  $code, $name, $picture, $display, $admin)
 	{
 		$this->id = $id;
         $this->code = $code;
 		$this->name = $name;	
+		$this->picture = $picture;
+		$this->display = $display;
+		$this->admin = $admin;
 	}
 	
 	
@@ -82,6 +105,49 @@ class Course implements JsonSerializable
 	 * @return string
 	 */
 	public function getName() { return $this->name;}
+	
+	/**
+	 * Mutateur de $picture
+	 * 
+	 * @param string $picture
+	 * 
+	 */
+	public function setPicture($picture) { $this->picture = $picture; }
+	/**
+	 * Assesseur de $picture
+	 * 
+	 * @return string
+	 */
+	public function getPicture() { return $this->picture;}
+	
+	/**
+	 * Mutateur de $display
+	 * 
+	 * @param bool $display
+	 * 
+	 */
+	public function setDisplay($display) { $this->display = $display; }
+	/**
+	 * Assesseur de $display
+	 * 
+	 * @return bool
+	 */
+	public function getDisplay() { return $this->display;}
+	
+	/**
+	 * Mutateur de $admin
+	 * 
+	 * @param user $admin
+	 * 
+	 */
+	public function seAdmin($admin) { $this->admin = $admin; }
+	/**
+	 * Assesseur de $admin
+	 * 
+	 * @return user
+	 */
+	public function getAdmin() { return $this->admin;}
+
 
 	/**
 	 * Assesseur de $softwares
@@ -105,12 +171,32 @@ class Course implements JsonSerializable
 	}
 
 
+	/**
+	* Initialise Course avec une liste
+	*
+	* @param array
+	*/
+	public function hydrate(array $donnes)
+	{
+		foreach($donnes as $key => $value)
+		{
+			$method = 'set'.ucfirst ($key);
+
+			if (method_exists($this, $method))
+			{
+				$this->$method($value);
+			}
+		}
+	}
+
+
 
     /**
 	 * Permet de sérialiser un module
 	 * 
      * @return array
      */
+	 
     public function jsonSerialize()
     {
         return [
@@ -119,4 +205,5 @@ class Course implements JsonSerializable
             "name" => htmlentities(stripslashes($this->name), ENT_QUOTES),
             "softwares" => $this->softwares];
     }
+	
 }

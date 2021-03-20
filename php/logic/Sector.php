@@ -23,13 +23,20 @@ class Sector implements JsonSerializable
 	 * 
 	 * @var string
 	 */
-	private $label1;
+	private $sector;
 	/**
-	 * Label2 de la formation, normalement, nom du semestre, ex: Semestre 01.
+	 * Nom du semestre, ex: Semestre 01.
 	 * 
 	 * @var string
 	 */
-	private $label2;
+	private $semester;
+	
+	/**
+	* Course que le sector possède
+	*
+	*/
+	
+	private $courses = array();
 	
 	/**
 	 * Constructeur d'une formation
@@ -40,12 +47,12 @@ class Sector implements JsonSerializable
 	 * @param string $label1
 	 * @param string $label2
 	 */
-	public function __construct( $id,  $code, $label1, $label2)
+	public function __construct( $id,  $code, $sector, $semester)
 	{
 	    $this->id = $id;
         $this->code = $code;
-		$this->label1 = $label1;
-		$this->label2 = $label2;	
+		$this->sector = $sector;
+		$this->semester = $semester;	
 	}
 
 
@@ -74,45 +81,54 @@ class Sector implements JsonSerializable
 	 * @return string
 	 */
 	public function getCode() { return $this->code;}
-
-	/**
-	 * Assesseur de $label1.
-	 * 
-	 * @param string $label1
-	 */
-	public function setLabel1($label1) { $this->label1 = $label1; }
-	/**
-	 * Mutateur de $label1
-	 * 
-	 * @return string
-	 */
-	public function getLabel1() { return $this->label1;}
-
-	/**
-	 * Assesseur de $label2.
-	 * 
-	 * @param string $label2
-	 */
-	public function setLabel2($label2) { $this->label2 = $label2; }
-	/**
-	 * Mutateur de $label2
-	 * 
-	 * @return string
-	 */
-	public function getLabel2() { return $this->label2;}
 	
+	/**
+	 * Mutateur de $sector.
+	 * 
+	 * @param string $sector
+	 */
+	public function setSector($sector) { $this->sector = $sector; }
+	/**
+	 * Assesseur de $sector.
+	 * 
+	 * @return string
+	 */
+	public function getSector() { return $this->sector;}
+	
+	/**
+	 * Mutateur de $semester.
+	 * 
+	 * @param string $semester
+	 */
+	public function setSemester($semester) { $this->semester = $semester; }
+	/**
+	 * Assesseur de $semester.
+	 * 
+	 * @return string
+	 */
+	public function getSemester() { return $this->semester;}
+	
+	/**
+	* Assesseur de $courses
+	*
+	*
+	* @return array
+	*/
+	
+	public function getCourses() {return $this->courses;}
 
-    /**
-     * @inheritDoc
-     */
-    public function jsonSerialize()
-    {
-        return [
-            "id" => htmlentities(stripslashes($this->id), ENT_QUOTES),
-            "code" => htmlentities(stripslashes($this->code), ENT_QUOTES),
-            "label1" => htmlentities(stripslashes($this->label1), ENT_QUOTES),
-            "label2" => htmlentities(stripslashes($this->label2), ENT_QUOTES)];
-    }
+
+	/**
+	* Ajoute une course au sector
+	*
+	* @param course $course
+	*/
+	public function addCourse($course)
+	{
+		array_push($this->courses, $course);
+	}
+
+	
 
     /**
 	 * Permet d'hydrater une formation.
