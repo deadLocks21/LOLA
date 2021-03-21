@@ -118,3 +118,4 @@ INSERT INTO Softwares VALUES (41, "OpenCV", null, "https://iutdijon.u-bourgogne.
 INSERT INTO Softwares VALUES (42, "Flutter", null, "https://iutdijon.u-bourgogne.fr/intra/iq/softs/files/flutter.pdf", "https://iutdijon.u-bourgogne.fr/intra/iq/softs/files/flutter.zip", null,null, null,1,null);
 INSERT INTO Softwares VALUES (43, "MonoGame", null, "https://iutdijon.u-bourgogne.fr/intra/iq/softs/files/monogame.pdf", "https://iutdijon.u-bourgogne.fr/intra/iq/softs/files/MonoGameSetup.zip", null,null, null,1,null);
 
+INSERT INTO SuperAdmins VALUES (1, 1);
