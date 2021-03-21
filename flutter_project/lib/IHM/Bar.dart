@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/Bar/BarDecoration.dart';
-import 'package:flutter_project/Bar/BarTitle.dart';
-import 'package:flutter_project/Bar/Logo.dart';
-import 'package:flutter_project/Bar/LogoutButton.dart';
+import 'package:flutter_project/IHM/Bar/BarDecoration.dart';
+import 'package:flutter_project/IHM/Bar/BarTitle.dart';
+import 'package:flutter_project/IHM/Bar/Logo.dart';
+import 'package:flutter_project/IHM/Bar/LogoutButton.dart';
 
 class Bar extends StatefulWidget {
   Bar({Key key}) : super(key: key);
