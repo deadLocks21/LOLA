@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/IHM/ContentContainer/ContentContainer.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/ContentContainer.dart';
 
 class Content extends StatefulWidget {
   Content({Key key}) : super(key: key);

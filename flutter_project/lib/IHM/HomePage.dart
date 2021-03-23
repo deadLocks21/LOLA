@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/IHM/Bar.dart';
-import 'package:flutter_project/IHM/Content.dart';
+import 'package:flutter_project/ihm/HomePage/Bar.dart';
+import 'package:flutter_project/ihm/HomePage/Content.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
