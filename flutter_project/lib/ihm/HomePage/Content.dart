@@ -21,7 +21,10 @@ class _ContentState extends State<Content> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (int i = 0; i < 10; i++) ContentContainer(),
+            for (int i = 0; i < 10; i++)
+              ContentContainer(
+                isAdmin: true,
+              ),
           ],
         ),
       ),

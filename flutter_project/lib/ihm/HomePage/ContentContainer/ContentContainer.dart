@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/ButtonsRow.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/CloseFullscreenButton.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/Content.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/Decor.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/DeleteButton.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/EditButton.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/TopRightButtons.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/ValidateButton.dart';
 
 class ContentContainer extends StatefulWidget {
   Size closeSize;
@@ -7,6 +15,8 @@ class ContentContainer extends StatefulWidget {
   Widget openContent;
   Widget editionContent;
   Widget deleteContent;
+  bool isAdmin;
+  bool isDisplayable;
 
   ContentContainer({
     Key key,
@@ -16,6 +26,8 @@ class ContentContainer extends StatefulWidget {
     this.closeContent = const Text("Close content"),
     this.editionContent = const Text("Edition content"),
     this.deleteContent = const Text("Delete content"),
+    this.isAdmin = false,
+    this.isDisplayable = false,
   }) : super(key: key);
 
   @override
@@ -37,100 +49,61 @@ class _ContentContainerState extends State<ContentContainer>
         child: AnimatedContainer(
           width: open ? sup.openSize.width : sup.closeSize.width,
           height: open ? sup.openSize.height : sup.closeSize.height,
-          duration: const Duration(seconds: 2),
+          duration: const Duration(seconds: 1),
           curve: Curves.fastOutSlowIn,
           child: Stack(
             children: [
-              Align(
-                child: AnimatedCrossFade(
-                  duration: const Duration(seconds: 1),
-                  firstChild: sup.editionContent,
-                  secondChild: AnimatedCrossFade(
-                    duration: const Duration(seconds: 1),
-                    firstChild: sup.deleteContent,
-                    secondChild: AnimatedCrossFade(
-                      duration: const Duration(seconds: 1),
-                      firstChild: sup.openContent,
-                      secondChild: sup.closeContent,
-                      crossFadeState: open
-                          ? CrossFadeState.showFirst
-                          : CrossFadeState.showSecond,
-                    ),
-                    crossFadeState: delete
-                        ? CrossFadeState.showFirst
-                        : CrossFadeState.showSecond,
-                  ),
-                  crossFadeState: edit
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
-                ),
-                alignment: Alignment.center,
+              Content(
+                sup: this.widget,
+                open: this.open,
+                edit: this.edit,
+                delete: this.delete,
               ),
-              Align(
-                alignment: Alignment.topRight,
-                child: AnimatedCrossFade(
-                  duration: const Duration(microseconds: 500),
-                  firstChild: Align(
-                    alignment: Alignment.topRight,
-                    child: IconButton(
-                      icon: Icon(Icons.close_fullscreen_rounded),
-                      onPressed: () {
-                        setState(() {
-                          open = false;
-                        });
-                      },
-                    ),
-                  ),
-                  secondChild: delete || edit
-                      ? Container()
-                      : Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            IconButton(
-                              icon: Icon(Icons.edit),
-                              padding: EdgeInsets.zero,
-                              onPressed: () {
-                                setState(() {
-                                  edit = true;
-                                });
-                              },
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.delete),
-                              onPressed: () {
-                                setState(() {
-                                  delete = true;
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                  crossFadeState: open
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
-                ),
-              )
-            ],
-          ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 3),
+              TopRightButtons(
+                isDisplayable: sup.isDisplayable,
+                isAdmin: sup.isAdmin,
+                open: this.open,
+                edit: this.edit,
+                delete: this.delete,
+                setOpenFalse: setOpenFalse,
+                setEditTrue: setEditTrue,
+                setDeleteTrue: setDeleteTrue,
+                validate: validate,
               ),
             ],
           ),
+          decoration: Decor.getBox(sup.isDisplayable),
         ),
-        onTap: () {
-          setState(() {
-            open = true;
-          });
-        },
+        onTap: !edit && !delete
+            ? () {
+                setState(() {
+                  open = true;
+                });
+              }
+            : null,
       ),
     );
+  }
+
+  void validate() {
+    print("ContentContainer validé");
+  }
+
+  void setDeleteTrue() {
+    setState(() {
+      delete = true;
+    });
+  }
+
+  void setEditTrue() {
+    setState(() {
+      edit = true;
+    });
+  }
+
+  void setOpenFalse() {
+    setState(() {
+      open = false;
+    });
   }
 }
