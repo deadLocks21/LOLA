@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS getUserById;
+DROP PROCEDURE IF EXISTS GetUserById;
 
 DELIMITER |
 
-CREATE PROCEDURE getUserById(IN p_id INT)
+CREATE PROCEDURE GetUserById(IN p_id INT)
     BEGIN
     
 		SELECT *
@@ -14,4 +14,4 @@ CREATE PROCEDURE getUserById(IN p_id INT)
 
 DELIMITER ;
 
-Call getUserById(2);
+Call GetUserById(2);

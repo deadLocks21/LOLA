@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS getSector;
+DROP PROCEDURE IF EXISTS GetSector;
 
 DELIMITER |
 
-CREATE PROCEDURE getSector(IN p_id INT)
+CREATE PROCEDURE GetSector(IN p_id INT)
     BEGIN
     
 		SELECT *
@@ -15,4 +15,4 @@ CREATE PROCEDURE getSector(IN p_id INT)
 
 DELIMITER ;
 
-Call getSector(3);
+Call GetSector(3);

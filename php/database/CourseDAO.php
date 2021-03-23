@@ -3,7 +3,7 @@ declare(strict_types = 1);
 
 /**
  * Permet de synthétiser les méthodes CRUD pour un module.
- * 
+ *
  * @package database
  */
 class CourseDAO {
@@ -13,16 +13,9 @@ class CourseDAO {
     public static function get($id) {
         $toolsDAO = new ToolsDAO();
 
-        $resultats = $toolsDAO->query("CALL GetCourseSimple(?)", array($id));
-        
-        $code = $resultats[0]['code'];
-        $name = $resultats[0]['name'];
-        
-        $course = new Course($id, $code, $name);
-        
-        $resultats = $toolsDAO->query("CALL GetCourse(?)", array($id));
-        foreach($resultats as $s)
-            $course->add(new Software($s['idSoftware'], $s['name'], $s['version'], $s['urlSetup'], $s['urlTuto'], $s['commentary']));
+        $UaP = $toolsDAO->query("CALL GetCourse(?)", array($id));
+
+        $course = new Course($UaP[0]['id'], $UaP[0]['code'],$UaP[0]['name'], $UaP[0]['picture'],$UaP[0]['display']);
 
         return $course;
     }
@@ -30,30 +23,19 @@ class CourseDAO {
     /**
      * Ajouter un nouveau module à la base de données
      */
-    public static function create(Course $course, Sector $sector, User $user) {
+    public static function create($code,$name,$picture,$display) {
         $toolsDAO = new ToolsDAO();
 
-        $code = $course->getCode();
-        $name = $course->getName();
-        $idUser = $user->getId();
-        $idSector = $sector->getId();
-
-        $toolsDAO->call("CALL AddCourse(?, ?, ?, ?)", array($code, $name, $idUser, $idSector));
+        $toolsDAO->call("CALL CreateCourse(?, ?, ?, ?)", array($code,$name,$picture,$display));
     }
 
     /**
      * Mettre à jour un module dans la base de données
      */
-    public static function update(Course $course, Sector $sector, User $user) {
+    public static function update($id,$code,$name,$picture,$display) {
         $toolsDAO = new ToolsDAO();
 
-        $id = $course->getId();
-        $code = $course->getCode();
-        $name = $course->getName();
-        $idUser = $user->getId();
-        $idSector = $sector->getId();
-
-        $toolsDAO->call("CALL AlterCourse(?, ?, ?, ?, ?)", array($id, $code, $name, $idSector, $idUser));
+        $toolsDAO->call("CALL UpdateCourse(?, ?, ?, ?, ?)", array($id, $code, $name, $picture, $display));
     }
 
     /**
@@ -62,6 +44,6 @@ class CourseDAO {
     public static function delete($id) {
         $toolsDAO = new ToolsDAO();
 
-        $resultats = $toolsDAO->query("CALL DeleteCourse(?)", array($id));
+        $toolsDAO->call("CALL DeleteCourse(?)", array($id));
     }
 }

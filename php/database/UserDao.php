@@ -1,14 +1,14 @@
 <?php
 /**
  * Opérations sur les utilisateurs de la db.
- * 
+ *
  * @package database
  */
 class UserDao {
 
     /**
      * Permet de récupérer un utilisateur de la db.
-     * 
+     *
      * @param string $login
      * @return User
      */
@@ -16,14 +16,14 @@ class UserDao {
     {
         $tDAO = new ToolsDAO();
 
-        $UaP = $tDAO->query("CALL GetUser(?);", array($login));
+        $UaP = $tDAO->query("CALL GetUserByLogin(?);", array($login));
 
-        return new User($UaP[0]['idUser'], $UaP[0]['login'], $UaP[0]['password'], $UaP[0]['userType']);
+        return new User($UaP[0]['id'], $UaP[0]['login']);
     }
-	
+
 	/**
      * Permet de récupérer un utilisateur de la db.
-     * 
+     *
      * @param string $login
      * @return User
      */
@@ -31,8 +31,8 @@ class UserDao {
     {
         $tDAO = new ToolsDAO();
 
-        $UaP = $tDAO->query("CALL GetUser(?);", array($login));
+        $UaP = $tDAO->query("CALL GetUserById(?);", array($id));
 
-        return new User($UaP[0]['idUser'], $UaP[0]['login'], $UaP[0]['password'], $UaP[0]['userType']);
+        return new User($UaP[0]['id'], $UaP[0]['login']);
     }
 }

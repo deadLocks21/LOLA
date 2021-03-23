@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS getSectors;
+DROP PROCEDURE IF EXISTS GetSectors;
 
 DELIMITER |
 
-CREATE PROCEDURE getSectors()
+CREATE PROCEDURE GetSectors()
     BEGIN
     
 		SELECT *
@@ -13,4 +13,4 @@ CREATE PROCEDURE getSectors()
 
 DELIMITER ;
 
-Call getSectors();
+Call GetSectors();

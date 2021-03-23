@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS getSoftware;
+DROP PROCEDURE IF EXISTS GetSoftware;
 
 DELIMITER |
 
-CREATE PROCEDURE getSoftware(IN p_id INT)
+CREATE PROCEDURE GetSoftware(IN p_id INT)
     BEGIN
     
 		SELECT *
@@ -14,4 +14,4 @@ CREATE PROCEDURE getSoftware(IN p_id INT)
 
 DELIMITER ;
 
-Call getSoftware(3);
+Call GetSoftware(3);

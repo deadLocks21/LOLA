@@ -4,7 +4,7 @@
  *  
  * @package logic
  */
-class Sector implements JsonSerializable
+class Sector 
 {
     /**
 	 * Identifiant de la formation

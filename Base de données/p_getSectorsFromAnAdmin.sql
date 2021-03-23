@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS getCoursesFromAnAdmin;
+DROP PROCEDURE IF EXISTS GetCoursesFromAnAdmin;
 
 DELIMITER |
 
-CREATE PROCEDURE getCoursesFromAnAdmin(IN p_login VARCHAR(41))
+CREATE PROCEDURE GetCoursesFromAnAdmin(IN p_login VARCHAR(41))
     BEGIN
     
 		SELECT *
@@ -15,4 +15,4 @@ CREATE PROCEDURE getCoursesFromAnAdmin(IN p_login VARCHAR(41))
 
 DELIMITER ;
 
-Call getCoursesFromAnAdmin("cc145798");
+Call GetCoursesFromAnAdmin("cc145798");

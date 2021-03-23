@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS deleteSector;
+DROP PROCEDURE IF EXISTS DeleteSector;
 
 DELIMITER |
 
-CREATE PROCEDURE deleteSector(IN p_id INT)
+CREATE PROCEDURE DeleteSector(IN p_id INT)
     BEGIN
     
 		DELETE FROM sectors

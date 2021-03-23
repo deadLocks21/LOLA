@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS getUserByLogin;
+DROP PROCEDURE IF EXISTS GetUserByLogin;
 
 DELIMITER |
 
-CREATE PROCEDURE getUserByLogin(IN p_login VARCHAR(41))
+CREATE PROCEDURE GetUserByLogin(IN p_login VARCHAR(41))
     BEGIN
     
 		SELECT *
@@ -16,4 +16,4 @@ CREATE PROCEDURE getUserByLogin(IN p_login VARCHAR(41))
 
 DELIMITER ;
 
-Call getUserByLogin("aa546211");
+Call GetUserByLogin("aa546211");

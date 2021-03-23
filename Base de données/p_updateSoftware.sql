@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS updateSoftware;
+DROP PROCEDURE IF EXISTS UpdateSoftware;
 
 DELIMITER |
 
-CREATE PROCEDURE updateSoftware(IN p_id INT, IN p_name VARCHAR(97), IN p_version VARCHAR(17),IN p_tuto VARCHAR(241), IN p_setup VARCHAR(241), IN p_commentary VARCHAR(241), IN p_picture VARCHAR(241),  IN p_course INT, IN p_display BOOL)
+CREATE PROCEDURE UpdateSoftware(IN p_idINT, IN p_name VARCHAR(97), IN p_version VARCHAR(17),IN p_tuto VARCHAR(241), IN p_setup VARCHAR(241), IN p_commentary VARCHAR(241), IN p_picture VARCHAR(241),  IN p_course INT, IN p_display BOOL)
     BEGIN
 		UPDATE Software
         SET

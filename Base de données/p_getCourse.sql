@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS getCourse;
+DROP PROCEDURE IF EXISTS GetCourse;
 
 DELIMITER |
 
-CREATE PROCEDURE getCourse(IN p_id INT)
+CREATE PROCEDURE GetCourse(IN p_id INT)
     BEGIN
 		Select * 
         FROM courses
@@ -12,4 +12,4 @@ CREATE PROCEDURE getCourse(IN p_id INT)
 
 DELIMITER ;
 
-CALL getCourse(10);
+CALL GetCourse(10);

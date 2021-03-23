@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS deleteSoftware;
+DROP PROCEDURE IF EXISTS DeleteSoftware;
 
 DELIMITER |
 
-CREATE PROCEDURE deleteSoftware(IN p_id INT)
+CREATE PROCEDURE DeleteSoftware(IN p_id INT)
     BEGIN
     
 		DELETE FROM softwares

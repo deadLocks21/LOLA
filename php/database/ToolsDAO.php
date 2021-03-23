@@ -11,7 +11,7 @@ class ToolsDAO{
      * @return PDO Instance de la classe permettant d'éxecuter les requêtes SQL.
      */
     private function openCon(){
-        return new PDO('mysql:host=localhost;dbname=timothe_M3302;charset=utf8', 'timothe_M3302', '+w^wfU5E~D99');
+        return new PDO('mysql:host=localhost;dbname=lola;charset=utf8', 'root', '');
     }
 
     /**

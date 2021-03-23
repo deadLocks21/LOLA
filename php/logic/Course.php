@@ -96,7 +96,7 @@ class Course implements JsonSerializable
 	 * Mutateur de $name
 	 * 
 	 * @param string $name
-	 * @return string
+	 * 
 	 */
 	public function setName($name) { $this->name = $name; }
 	/**

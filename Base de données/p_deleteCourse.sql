@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS deleteCourse;
+DROP PROCEDURE IF EXISTS DeleteCourse;
 
 DELIMITER |
 
-CREATE PROCEDURE deleteCourse(IN p_id INT)
+CREATE PROCEDURE DeleteCourse(IN p_id INT)
     BEGIN
 		DELETE FROM Courses
         Where Courses.id = p_id;

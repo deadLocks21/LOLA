@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS createCourse;
+DROP PROCEDURE IF EXISTS CreateCourse;
 
 DELIMITER |
 
-CREATE PROCEDURE createCourse(IN p_code VARCHAR(41), IN p_name VARCHAR(97), IN p_picture VARCHAR(241), IN p_sector_id INT, IN p_admin_login VARCHAR(41), IN p_display BOOL)
+CREATE PROCEDURE CreateCourse(IN p_code VARCHAR(41), IN p_name VARCHAR(97), IN p_picture VARCHAR(241), IN p_sector_id INT, IN p_admin_login VARCHAR(41), IN p_display BOOL)
     BEGIN
 		DECLARE temp INT DEFAULT NULL;
         DECLARE idAdmin INT;
@@ -21,4 +21,4 @@ CREATE PROCEDURE createCourse(IN p_code VARCHAR(41), IN p_name VARCHAR(97), IN p
 
 DELIMITER ;
 
-CALL createCourse("Tesqssqqt","TESqsssqqT","TqssssqEST",3,"aa546211",False);
+CALL CreateCourse("Tesqssqqt","TESqsssqqT","TqssssqEST",3,"aa546211",False);
