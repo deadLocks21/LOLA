@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/ihm/HomePage/ContentContainer/ContentContainer.dart';
+import 'package:flutter_project/logic/Software.dart';
+import 'package:flutter_project/ihm/HomePage/SoftwareContainer.dart';
 
 class Content extends StatefulWidget {
   Content({Key key}) : super(key: key);
@@ -22,8 +23,8 @@ class _ContentState extends State<Content> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             for (int i = 0; i < 10; i++)
-              ContentContainer(
-                isAdmin: true,
+              SoftwareContainer(
+                software: new Software(i),
               ),
           ],
         ),

@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/ihm/HomePage/ContentContainer/ButtonsRow.dart';
-import 'package:flutter_project/ihm/HomePage/ContentContainer/CloseFullscreenButton.dart';
 import 'package:flutter_project/ihm/HomePage/ContentContainer/Content.dart';
 import 'package:flutter_project/ihm/HomePage/ContentContainer/Decor.dart';
-import 'package:flutter_project/ihm/HomePage/ContentContainer/DeleteButton.dart';
-import 'package:flutter_project/ihm/HomePage/ContentContainer/EditButton.dart';
 import 'package:flutter_project/ihm/HomePage/ContentContainer/TopRightButtons.dart';
-import 'package:flutter_project/ihm/HomePage/ContentContainer/ValidateButton.dart';
 
 class ContentContainer extends StatefulWidget {
   Size closeSize;

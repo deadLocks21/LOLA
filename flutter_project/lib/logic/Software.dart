@@ -10,6 +10,20 @@ class Software {
   String picture;
   bool display;
 
+  Software(
+    id, {
+    this.name = "Laragon",
+    this.version = "1.0.0",
+    this.tuto = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    this.setup = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    this.commentary =
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet risus et justo lacinia aliquam ut nec diam. Suspendisse et imperdiet arcu. Maecenas facilisis, mauris quis finibus pretium, lacus nisi ultrices justo, non varius metus turpis id proin.",
+    this.picture = "softwares/laragon.png",
+    this.display = true,
+  }) {
+    this._id = id;
+  }
+
   Software.fromJson(Map<String, dynamic> json)
       : _id = json['id'],
         name = json['name'],
