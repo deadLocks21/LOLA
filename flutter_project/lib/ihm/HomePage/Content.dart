@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/ihm/HomePage/CourseContainer.dart';
+import 'package:flutter_project/logic/Course.dart';
 import 'package:flutter_project/logic/Software.dart';
 import 'package:flutter_project/ihm/HomePage/SoftwareContainer.dart';
 
@@ -23,9 +25,10 @@ class _ContentState extends State<Content> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             for (int i = 0; i < 10; i++)
-              SoftwareContainer(
-                software: new Software(i),
-              ),
+              CourseContainer(
+                  course: new Course(0, display: true, softwares: [
+                for (int i = 0; i < 10; i++) new Software(0, display: true),
+              ])),
           ],
         ),
       ),

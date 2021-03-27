@@ -20,6 +20,7 @@ class SoftwareContainerState extends State<SoftwareContainer> {
   @override
   Widget build(BuildContext context) {
     return ContentContainer(
+      isDisplayable: soft.display,
       closeSize: closeSize,
       openSize: openSize,
       closeContent: CloseContent(
