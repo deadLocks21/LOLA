@@ -1,5 +1,6 @@
 <?php
-require_once "../php/functions.php";
+require_once "./php/database/ToolsDAO.php";
+require_once "./php/database/CourseDAO.php";
 courseAPI();
 
 /**
@@ -14,14 +15,11 @@ function courseAPI() {
     switch($request_method)
     {
         case 'GET':
-            $id = $_GET["id"];
-            if(!empty($id)){
-                $course = CourseDAO::get($id);
-                header('Content-Type: application/json');
-                echo json_encode($course, JSON_PRETTY_PRINT);
-            }
+            $dao = new CourseDAO();
+            header('Content-Type: application/json');
+            echo json_encode($dao->get($_GET['id']), JSON_PRETTY_PRINT);
             break;
-        case 'POST':
+        /* case 'POST':
             $code = $_POST['code'];
             $name = $_POST['name'];
             $user = UserDao::getUser($_POST['userName']);
@@ -50,7 +48,7 @@ function courseAPI() {
                 header('Content-Type: application/json');
                 echo json_encode(array('status' => 1, 'status_message' =>'Matière supprimé avec succès.'), JSON_PRETTY_PRINT);
             }
-            break;
+            break; */
         default:
             header("HTTP/1.0 405 Method Not Allowed");
             break;
