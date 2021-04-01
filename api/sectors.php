@@ -1,5 +1,6 @@
 <?php
-require_once "../php/functions.php";
+require_once "./php/database/ToolsDAO.php";
+require_once "./php/database/SectorDAO.php";
 sectorsAPI();
 
 /**
@@ -14,13 +15,12 @@ function sectorsAPI() {
     switch($request_method)
     {
         case 'GET':
-            $login = $_GET['login'];
-            if(!empty($login)){
-                $user = UserDao::getUser($login);
-                $sectorDirectory = SectorDirectoryDAO::get($user);
-                header('Content-Type: application/json');
-                echo json_encode($sectorDirectory, JSON_PRETTY_PRINT);
-            }
+            $dao = new SectorDAO();
+            header('Content-Type: application/json');
+            if ($_GET['who'] == "61646d696e")
+                echo json_encode($dao->getAll(), JSON_PRETTY_PRINT);
+            else
+                echo json_encode($dao->getFromAnAdmin($_GET['who']), JSON_PRETTY_PRINT);
             break;
         default:
             header("HTTP/1.0 405 Method Not Allowed");
