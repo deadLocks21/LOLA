@@ -1,5 +1,6 @@
 <?php
-require_once "../php/functions.php";
+require_once "./php/database/ToolsDAO.php";
+require_once "./php/database/SoftwareDAO.php";
 softwareAPI();
 
 /**
@@ -14,14 +15,11 @@ function softwareAPI() {
     switch($request_method)
     {
         case 'GET':
-            $id = $_GET["id"];
-            if(!empty($id)){
-                $software = SoftwareDAO::get($id);
-                header('Content-Type: application/json');
-                echo json_encode($software, JSON_PRETTY_PRINT);
-            }
+            $dao = new SoftwareDAO();
+            header('Content-Type: application/json');
+            echo json_encode($dao->get($_GET['id']), JSON_PRETTY_PRINT);
             break;
-        case 'POST':
+        /* case 'POST':
             $name = $_POST['name'];
             $version = $_POST['version'];
             $urlSetup = $_POST['urlSetup'];
@@ -56,7 +54,7 @@ function softwareAPI() {
                 header('Content-Type: application/json');
                 echo json_encode(array('status' => 1, 'status_message' =>'Formation supprimé avec succès.'), JSON_PRETTY_PRINT);
             }
-        break;
+        break; */
         default:
             header("HTTP/1.0 405 Method Not Allowed");
             break;

@@ -2,9 +2,9 @@ RewriteEngine On
 RewriteRule ^sectors/([0-9|a-z|A-Z]*)$ sectors.php?who=$1
 RewriteRule ^courses/([0-9]*)$ courses.php?sector=$1
 RewriteRule ^course/(\d+)$ course.php?id=$1
-
-
+RewriteRule ^softwares/(\d+)$ softwares.php?id=$1
 RewriteRule ^software/(\d+)$ software.php?id=$1
-RewriteRule ^softwares/([0-9|a-z|A-Z]*)$ softwares.php?login=$1
+
+
 
 RewriteRule ^sector/(\d+)$ sector.php?id=$1
