@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/ihm/HomePage/ContentContainer/Content.dart';
 import 'package:flutter_project/ihm/HomePage/ContentContainer/Decor.dart';
 import 'package:flutter_project/ihm/HomePage/ContentContainer/TopRightButtons.dart';
+import 'package:flutter_project/ihm/HomePage/ContentContainer/Content.dart';
 
 class ContentContainer extends StatefulWidget {
   Size closeSize;
@@ -37,7 +37,7 @@ class _ContentContainerState extends State<ContentContainer>
 
   @override
   Widget build(BuildContext context) {
-    var sup = this.widget;
+    ContentContainer sup = this.widget;
     return Container(
       margin: EdgeInsets.all(20),
       child: GestureDetector(
@@ -49,10 +49,13 @@ class _ContentContainerState extends State<ContentContainer>
           child: Stack(
             children: [
               Content(
-                sup: this.widget,
                 open: this.open,
                 edit: this.edit,
                 delete: this.delete,
+                closeContent: sup.closeContent,
+                openContent: sup.openContent,
+                editContent: sup.editionContent,
+                deleteContent: sup.deleteContent,
               ),
               TopRightButtons(
                 isDisplayable: sup.isDisplayable,

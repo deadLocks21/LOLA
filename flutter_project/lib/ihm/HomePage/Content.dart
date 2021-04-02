@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/dao/SectorDAO.dart';
 import 'package:flutter_project/ihm/HomePage/CourseContainer.dart';
 import 'package:flutter_project/ihm/HomePage/SectorContainer.dart';
 import 'package:flutter_project/logic/Course.dart';
@@ -23,29 +24,60 @@ class _ContentState extends State<Content> {
       alignment: Alignment.center,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            for (int i = 0; i < 10; i++)
-              SectorContainer(
-                sector: new Sector(
-                  0,
-                  courses: [
-                    for (int i = 0; i < 10; i++)
-                      new Course(
-                        0,
-                        display: true,
-                        softwares: [
-                          for (int i = 0; i < 10; i++)
-                            new Software(0, display: true),
-                        ],
+        child: FutureBuilder<Row>(
+          future: SectorDao.getAllSectors(),
+          builder: (BuildContext context, AsyncSnapshot<Row> snapshot) {
+            Row child;
+            if (snapshot.hasData) {
+              child = snapshot.data;
+            } else if (snapshot.hasError) {
+              child = Row(
+                children: [
+                  Column(
+                    children: [
+                      const Icon(
+                        Icons.error_outline,
+                        color: Colors.red,
+                        size: 60,
                       ),
-                  ],
-                ),
-              ),
-          ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16),
+                        child: Text('Error: ${snapshot.error}'),
+                      )
+                    ],
+                  ),
+                ],
+              );
+            } else {
+              child = Row(
+                children: [
+                  Column(
+                    children: [
+                      SizedBox(
+                        child: CircularProgressIndicator(),
+                        width: 60,
+                        height: 60,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 16),
+                        child: Text('Awaiting result...'),
+                      )
+                    ],
+                  ),
+                ],
+              );
+            }
+            return child;
+          },
         ),
       ),
     );
   }
 }
+
+/* Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            
+          ],
+        ) */

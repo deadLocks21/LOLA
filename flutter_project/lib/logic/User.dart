@@ -14,6 +14,6 @@ class User {
 
   Future<bool> isAdmin() async {
     // TODO Add the verification
-    return false;
+    return true;
   }
 }

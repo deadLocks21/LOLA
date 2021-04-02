@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project/ihm/HomePage/ContentContainer/ContentContainer.dart';
 
 class Content extends StatefulWidget {
-  ContentContainer sup;
   bool open;
   bool edit;
   bool delete;
-  Content({Key key, this.sup, this.open, this.edit, this.delete})
-      : super(key: key);
+  Widget closeContent;
+  Widget openContent;
+  Widget editContent;
+  Widget deleteContent;
+
+  Content({
+    Key key,
+    this.open,
+    this.edit,
+    this.delete,
+    this.closeContent,
+    this.openContent,
+    this.editContent,
+    this.deleteContent,
+  }) : super(key: key);
 
   @override
   _ContentState createState() => _ContentState();
@@ -21,14 +32,14 @@ class _ContentState extends State<Content> {
     return Align(
       child: AnimatedCrossFade(
         duration: const Duration(seconds: 1),
-        firstChild: sup.sup.editionContent,
+        firstChild: sup.editContent,
         secondChild: AnimatedCrossFade(
           duration: const Duration(seconds: 1),
-          firstChild: sup.sup.deleteContent,
+          firstChild: sup.deleteContent,
           secondChild: AnimatedCrossFade(
             duration: const Duration(seconds: 1),
-            firstChild: sup.sup.openContent,
-            secondChild: sup.sup.closeContent,
+            firstChild: sup.openContent,
+            secondChild: sup.closeContent,
             crossFadeState:
                 sup.open ? CrossFadeState.showFirst : CrossFadeState.showSecond,
           ),

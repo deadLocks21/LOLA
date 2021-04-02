@@ -1,5 +1,6 @@
 <?php
-require_once "../php/functions.php";
+require_once "./php/database/ToolsDAO.php";
+require_once "./php/database/SectorDAO.php";
 sectorAPI();
 
 /**
@@ -21,7 +22,7 @@ function sectorAPI() {
                 echo json_encode($sector, JSON_PRETTY_PRINT);
             }
             break;
-        case 'POST':
+        /* case 'POST':
             $code = $_POST['code'];
             $label1 = $_POST['label1'];
             $label2 = $_POST['label2'];
@@ -48,7 +49,7 @@ function sectorAPI() {
                 header('Content-Type: application/json');
                 echo json_encode(array('status' => 1, 'status_message' =>'Formation supprimé avec succès.'), JSON_PRETTY_PRINT);
             }
-            break;
+            break; */
         default:
             header("HTTP/1.0 405 Method Not Allowed");
             break;
