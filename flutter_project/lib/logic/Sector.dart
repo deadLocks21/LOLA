@@ -1,3 +1,4 @@
+import 'package:flutter_project/dao/CourseDAO.dart';
 import 'package:flutter_project/logic/Course.dart';
 
 class Sector {
@@ -32,6 +33,9 @@ class Sector {
       };
 
   getCourses() async {
-    // TODO Implement
+    List<Course> tempCourses = [];
+    tempCourses = await CourseDAO.getAll(_id);
+
+    courses = tempCourses;
   }
 }

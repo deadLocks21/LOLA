@@ -1,3 +1,4 @@
+import 'package:flutter_project/dao/SoftwareDAO.dart';
 import 'package:flutter_project/logic/Software.dart';
 
 class Course {
@@ -36,6 +37,9 @@ class Course {
       };
 
   getSoftwares() async {
-    // TODO Make the req
+    List<Software> tempSoftwares = [];
+    tempSoftwares = await SoftwareDAO.getAll(_id);
+
+    softwares = tempSoftwares;
   }
 }
